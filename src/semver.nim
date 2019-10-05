@@ -100,8 +100,8 @@ proc parseVersion*(versionString: string): Version {.raises: [ParseError, Except
       result.metadata = evt.content
     of EventKind.error:
       raise newException(ParseError, evt.errorMessage)
-    else:
-      echo "OTHER EVENT: " & $evt
+    #else:
+    #  echo "OTHER EVENT: " & $evt
 
   if numDigits != 3:
     raise newException(ParseError, "Not enough integer values in version")
